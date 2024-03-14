@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSScoin</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #f4f4f4;
+            padding: 10px 0;
+        }
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #333;
+        }
+        nav a:hover {
+            color: #000;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .buy-section, .value-section {
+            margin-bottom: 20px;
+        }
+        .value {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CSScoin</h1>
+    </header>
+    <nav>
+        <a href="#buy">Buy CSScoin</a>
+        <a href="#value">Check CSScoin Value</a>
+    </nav>
+    <div class="container">
+        <section id="buy" class="buy-section">
+            <h2>Buy CSScoin</h2>
+            <form action="#" method="post">
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" name="amount" min="1" required>
+                <button type="submit">Buy</button>
+            </form>
+        </section>
+        <section id="value" class="value-section">
+            <h2>CSScoin Value</h2>
+            <div class="value">$<span id="csscoin-value">100</span></div>
+        </section>
+    </div>
+    <script>
+        // Update CSScoin value every day
+        let csscoinValue = 100;
+        const valueElement = document.getElementById('csscoin-value');
+
+        function updateValue() {
+            csscoinValue += 123.4; // Increase value by 123.4 USD
+            csscoinValue -= 3.6; // Decrease value by 3.6 USD
+            valueElement.textContent = csscoinValue.toFixed(2);
+        }
+
+        // Update value initially and then every day
+        updateValue();
+        setInterval(updateValue, 24 * 60 * 60 * 1000); // Update every day
+    </script>
+</body>
+</html>
