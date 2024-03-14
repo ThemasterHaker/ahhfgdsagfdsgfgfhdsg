@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Market Shop</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: black;
+            color: red;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 60%; /* Increase the width to take up more space */
+            margin: 100px auto;
+            background-color: #000;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .item {
+            border: 1px solid #FF4500;
+            background-color: #000;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .item p {
+            margin: 0;
+        }
+
+        .item a {
+            color: red;
+            text-decoration: none;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .item a:hover {
+            color: #FF4500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Black Market Shop</h1>
+        <h2>Select an Item to Purchase</h2>
+        <div class="item">
+            <p>Item: Hackers Toolkit</p>
+            <p>Price: $500</p>
+            <a href="#" onclick="purchaseItem('Hackers Toolkit')">Purchase</a>
+        </div>
+        <div class="item">
+            <p>Item: Cryptocurrency Miner</p>
+            <p>Price: $1000</p>
+            <a href="#" onclick="purchaseItem('Cryptocurrency Miner')">Purchase</a>
+        </div>
+        <div class="item">
+            <p>Item: Botnet Access</p>
+            <p>Price: $2000</p>
+            <a href="#" onclick="purchaseItem('Botnet Access')">Purchase</a>
+        </div>
+    </div>
+
+    <script>
+        function purchaseItem(item) {
+            var time = prompt("Please enter a time for the transaction:");
+            var place = prompt("Please enter a place for the transaction:");
+            var school = prompt("Please enter the school name:");
+            var classPeriod = prompt("Please enter the class period:");
+            
+            if (time && place && school && classPeriod) {
+                alert("Transaction details:\nItem: " + item + "\nTime: " + time + "\nPlace: " + place + "\nSchool: " + school + "\nClass Period: " + classPeriod);
+            } else {
+                alert("Transaction canceled. Please fill out all fields.");
+            }
+        }
+    </script>
+</body>
+</html>
