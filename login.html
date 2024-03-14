@@ -65,14 +65,6 @@
             background-color: black;
             z-index: 9999;
         }
-
-        #timer {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 24px;
-        }
     </style>
 </head>
 <body>
@@ -96,13 +88,12 @@
     </div>
 
     <div id="hackerMode">
-        <div id="timer">Timer: <span id="countdown"></span></div>
+        <h2>Access Denied</h2>
+        <p>Your access has been restricted.</p>
     </div>
 
     <script>
         var failedAttempts = 0;
-        var timerStarted = false;
-        var countdownInterval;
 
         document.getElementById('loginForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent the form from submitting
@@ -117,40 +108,18 @@
             } else {
                 failedAttempts++;
                 if (failedAttempts >= 5) {
-                    startTimer();
+                    document.getElementById('loginContainer').style.display = 'none';
+                    document.getElementById('hackerMode').style.display = 'block';
                 } else {
                     alert('Invalid username, password, or entry code. Please try again.');
                 }
             }
         });
 
-        function startTimer() {
-            document.getElementById('loginContainer').style.display = 'none';
-            document.getElementById('hackerMode').style.display = 'block';
-            timerStarted = true;
-            var duration = 5 * 60; // 5 minutes in seconds
-            var timerDisplay = document.getElementById('countdown');
-
-            countdownInterval = setInterval(function() {
-                var minutes = Math.floor(duration / 60);
-                var seconds = duration % 60;
-
-                timerDisplay.textContent = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
-
-                if (--duration < 0) {
-                    clearInterval(countdownInterval);
-                    window.location.reload(); // Reload the page to go back to the login page
-                }
-            }, 1000);
-        }
-
         function resetFailedAttempts() {
             failedAttempts = 0;
-            if (timerStarted) {
-                clearInterval(countdownInterval);
-                document.getElementById('hackerMode').style.display = 'none';
-                timerStarted = false;
-            }
+            document.getElementById('loginContainer').style.display = 'block';
+            document.getElementById('hackerMode').style.display = 'none';
         }
     </script>
 </body>
